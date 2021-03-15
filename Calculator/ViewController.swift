@@ -8,6 +8,8 @@ class ViewController: UIViewController {
     var isFinishedTypingNumber: Bool = true
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
+        //as soon as calcButtonPressed, will be again ready to get new digits
+        isFinishedTypingNumber = true
     
     }
     
@@ -15,11 +17,11 @@ class ViewController: UIViewController {
 
         if let numValue = sender.currentTitle{
             
-            if isFinishedTypingNumber { //display shows 0 or is ready to get new num
-                displayLabel.text = numValue //e.g: 1
-                isFinishedTypingNumber = false // let it continue typing
+            if isFinishedTypingNumber { //ready to get digit
+                displayLabel.text = numValue
+                //after getting the first digit, turn and keep it false to get more digits
+                isFinishedTypingNumber = false
             } else {
-                //if this else triggered, add to previous num in the displayLabel + newValue (numValue)
                 displayLabel.text = displayLabel.text! + numValue
             }
                 
@@ -27,5 +29,3 @@ class ViewController: UIViewController {
             
     }
 }
-
-//A property needed that keeps hold of whether if the user is done typing the number
