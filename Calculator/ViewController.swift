@@ -8,8 +8,10 @@ class ViewController: UIViewController {
     var isFinishedTypingNumber: Bool = true
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
-        //as soon as calcButtonPressed, will be again ready to get new digits
         isFinishedTypingNumber = true
+        guard let number = Double(displayLabel.text!) else {
+            fatalError("Cannot convert display label text to a Double.")
+        }
     
     }
     
