@@ -15,13 +15,13 @@ class ViewController: UIViewController {
         }
         
         if let calcMethod = sender.currentTitle {
-            if calcMethod == "AC"{
+            if calcMethod == "AC" {
                 displayLabel.text = "0"
             }
-            else if calcMethod == "+/-"{
+            else if calcMethod == "+/-" {
                 displayLabel.text = String(Int(number * -1))
             }
-            else if calcMethod == "%"{
+            else if calcMethod == "%" {
                 displayLabel.text = String(number / 100)
             }
         }
@@ -29,17 +29,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func numButtonPressed(_ sender: UIButton) {
-
-        if let numValue = sender.currentTitle{
-            
-            if isFinishedTypingNumber { //ready to get digit
-                displayLabel.text = numValue
-                //after getting the first digit, turn and keep it false to get more digits
+        
+        if let numValue = sender.currentTitle { //numValue is one of 0-9
+            if isFinishedTypingNumber {
+                if numValue == "." {
+                    displayLabel.text = "0."
+                }
+                else {
+                    displayLabel.text = numValue
+                }
                 isFinishedTypingNumber = false
             } else {
+                if numValue == "." && displayLabel.text!.contains("."){
+                    return
+                }
                 displayLabel.text = displayLabel.text! + numValue
             }
-                
+            
+            
         }
             
     }
