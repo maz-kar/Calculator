@@ -3,8 +3,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var calculateLogic = CalculatorLogic()
-    
     @IBOutlet weak var displayLabel: UILabel!
     
     var isFinishedTypingNumber: Bool = true
@@ -24,22 +22,17 @@ class ViewController: UIViewController {
         isFinishedTypingNumber = true
         
         if let calcMethod = sender.currentTitle {
-            if calcMethod == "AC" {
-                displayLabel.text = "0"
+            let calculator = CalculatorLogic(number: displayValue)
+            guard let result = calculator.calculate(symbol: calcMethod) else {
+                fatalError("The value of the result was nil")
             }
-            else if calcMethod == "+/-" {
-                displayValue *= -1
-            }
-            else if calcMethod == "%" {
-                displayValue *= 0.01
-            }
+            displayValue = result
         }
-    
     }
     
     @IBAction func numButtonPressed(_ sender: UIButton) {
         if let numValue = sender.currentTitle {
-            if isFinishedTypingNumber {
+            if isFinishedTypingNumber {
                 if numValue == "." {
                     displayLabel.text = "0."
                 }
