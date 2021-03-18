@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         }
     }
     
-    let calculator = CalculatorLogic(number: displayValue)
+    private let calculator = CalculatorLogic(number: displayValue)
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         isFinishedTypingNumber = true
