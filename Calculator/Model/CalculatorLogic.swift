@@ -10,7 +10,7 @@ struct CalculatorLogic {
     }
     
     func calculate(symbol: String) ->Double? {
-        
+    
         if let n = number {
             
             if symbol == "AC" {
