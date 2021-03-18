@@ -5,8 +5,8 @@ struct CalculatorLogic {
     
     private var number: Double?
     
-    func setNumber(n number: Double) {
-        
+    mutating func setNumber(_ number: Double) {
+        self.number = number
     }
     
     func calculate(symbol: String) ->Double? {
