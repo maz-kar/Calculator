@@ -19,11 +19,12 @@ class ViewController: UIViewController {
         }
     }
     
+    let calculator = CalculatorLogic(number: displayValue)
+    
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         isFinishedTypingNumber = true
         
         if let calcMethod = sender.currentTitle {
-            let calculator = CalculatorLogic(number: displayValue)
             guard let result = calculator.calculate(symbol: calcMethod) else {
                 fatalError("The value of the result is nil")
             }
