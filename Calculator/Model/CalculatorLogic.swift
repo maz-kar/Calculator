@@ -1,14 +1,11 @@
 
 import Foundation
 
-class CalculatorLogic {
+struct CalculatorLogic {
     
     var number: Double
     
-    init(number: Double) {
-        self.number = number
-    }
-    func calculate(symbol: String) -> Double? {
+    func calculate(symbol: String) ->Double? {
         
         if symbol == "AC" {
             return 0
@@ -19,6 +16,7 @@ class CalculatorLogic {
         else if symbol == "%" {
             return number * 0.01
         }
-    return nil
+        return nil
     }
+    
 }
