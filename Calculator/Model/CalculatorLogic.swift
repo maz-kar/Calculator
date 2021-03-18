@@ -11,7 +11,7 @@ struct CalculatorLogic {
         self.number = number //it will set the GVar to LVar. GVar can be transferred to other files
     }
     
-    func calculate(symbol: String) ->Double? {
+    mutating func calculate(symbol: String) ->Double? {
     
         if let n = number {
             
@@ -24,6 +24,10 @@ struct CalculatorLogic {
             else if symbol == "%" {
                 return n * 0.01
             }
+            else if symbol == "+" {
+                intermediateCalculation = (n1: n, calcMethod: symbol)
+            }
+            
         }
         return nil
     }
