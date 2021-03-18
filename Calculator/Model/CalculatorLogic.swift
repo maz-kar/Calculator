@@ -5,8 +5,10 @@ struct CalculatorLogic {
     
     private var number: Double?
     
+    private var intermediateCalculation: (n1: Double, calcMethod: String)?
+    
     mutating func setNumber(_ number: Double) {
-        self.number = number
+        self.number = number //it will set the GVar to LVar. GVar can be transferred to other files
     }
     
     func calculate(symbol: String) ->Double? {
