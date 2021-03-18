@@ -3,7 +3,11 @@ import Foundation
 
 struct CalculatorLogic {
     
-    var number: Double?
+    private var number: Double?
+    
+    func setNumber(n number: Double) {
+        
+    }
     
     func calculate(symbol: String) ->Double? {
         
