@@ -15,22 +15,20 @@ struct CalculatorLogic {
         
         if let n = number {
             
-            if symbol == "AC" {
+            switch symbol {
+            case "AC":
                 return 0
-            }
-            else if symbol == "+/-" {
+            case "+/-":
                 return n * -1
-            }
-            else if symbol == "%" {
+            case "%":
                 return n * 0.01
-            }
-            else if symbol == "=" {
+            case "=":
                 return perfomTwoNumCalculation(n2: n)
-            }
-            else {
+            default:
                 intermediateCalculation = (n1: n, calcMethod: symbol)
             }
         }
+    
         return nil
     }
     
