@@ -38,8 +38,22 @@ struct CalculatorLogic {
         
         if let n1 = intermediateCalculation?.n1, let operation = intermediateCalculation?.calcMethod {
             
-            if operation == "+" {
+            switch operation {
+            
+            case "+":
                 return n1 + n2
+                
+            case "-":
+                return n1 - n2
+                
+            case "×":
+                return n1 * n2
+                
+            case "÷":
+                return n1 / n2
+                
+            default:
+                fatalError("The operation passed in does not match any of the cases.")
             }
             
         }
