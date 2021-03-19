@@ -54,7 +54,7 @@ class ViewController: UIViewController {
                 fatalError("The value of the result is nil")
             }
             displayValue = result
-        }
+        } 
     }
     
 
