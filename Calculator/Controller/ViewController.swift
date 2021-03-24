@@ -3,13 +3,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var displayLabel: UILabel! //displaylabel on top
+    @IBOutlet weak var displayLabel: UILabel!
     
-    private var isFinishedTypingNumber: Bool = true //if true means we just started to type
+    private var isFinishedTypingNumber: Bool = true
+    private var calculator = CalculatorLogic()
     
-    private var calculator = CalculatorLogic() //object from Model
-    
-    private var displayValue: Double { //to prevent casting all over the place
+    private var displayValue: Double {
         
         get {
             guard let number = Double(displayLabel.text!) else {
@@ -22,21 +21,21 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func numButtonPressed(_ sender: UIButton) { //when 0-9 was pressed
-        if let numValue = sender.currentTitle { //to catch the pressed number
+    @IBAction func numButtonPressed(_ sender: UIButton) {
+        if let numValue = sender.currentTitle {
             
-            if isFinishedTypingNumber { //Just started to type
-                if numValue == "." { //if the pressed value started with .
-                    displayLabel.text = "0." //change the display to 0.
+            if isFinishedTypingNumber {
+                if numValue == "." {
+                    displayLabel.text = "0."
                 }
                 else {
-                    displayLabel.text = numValue //if the pressed num is not starting with "." show the num on displayLabel
+                    displayLabel.text = numValue
                 }
-                isFinishedTypingNumber = false //continue accepting digits
+                isFinishedTypingNumber = false
             }
-            else { //case: if isFinishedTypingNumber == false
-                if numValue == "." && displayLabel.text!.contains(".") { //To cever both cases of starting with "." and case of 2.3
-                    return //Don't let any extra "."
+            else {
+                if numValue == "." && displayLabel.text!.contains(".") {
+                    return
                 }
                 else {
                     displayLabel.text! += numValue //
